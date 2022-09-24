@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+        "target": "https://eximdev.nimapinfotech.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
+

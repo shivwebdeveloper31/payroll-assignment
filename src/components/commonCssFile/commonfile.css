@@ -1,0 +1,36 @@
+.box{
+    display: flex;
+    height: 45px;
+    justify-content: space-between;
+    
+}
+.right{
+    display: flex;
+    gap: 200px;
+}
+.left{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.small_left{
+    display: flex;
+    margin-top: 14px;
+    gap: 20px;
+}
+.btn_1{
+    margin-top: -9px;
+}
+
+.small_right{
+    display: flex;
+    margin-right: 20px;
+}
+
+
+.UserName{
+    margin-top: 14px;
+}
+
+.input_type{
+    margin-top: 15px !important
+}

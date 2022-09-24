@@ -1,0 +1,29 @@
+.MyTask_Box{
+padding: 20px;
+}
+.Paper{
+    height: 1200px;
+}
+
+.Left_side{
+    display: flex;
+    gap: 10px;
+    
+}
+.Top_MyTask{
+    display: flex;
+  justify-content: space-between;  
+  padding: 20px;
+    
+}
+.Left_side label{
+    margin-top: -20px;
+}
+#standard-basic{
+    margin-top: -20px;
+}
+
+.All_btn{
+    display: flex;
+    gap: 20px;
+}
