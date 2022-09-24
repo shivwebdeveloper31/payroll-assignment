@@ -4,7 +4,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import MyTaskTable from './MyTaskTable';
 import { useEffect, useState } from 'react';
 import { withStyles } from '@material-ui/core';
 import { ColorRing } from 'react-loader-spinner'

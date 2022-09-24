@@ -21,11 +21,6 @@ const MyTask = () => {
         dispatch(MyTaskAction());
     }, []);
 
-    // const Search = (responseData) => {
-    //     return responseData?.data?.TaskList?.filter((item) => {
-    //         item.Title.toLowerCase().includes(query)
-    //     })
-    // }
 
     return (
         <div>

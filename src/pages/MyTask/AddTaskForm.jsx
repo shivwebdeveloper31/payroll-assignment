@@ -18,19 +18,19 @@ const AddTaskForm = () => {
 
 
     const validationSchema = yup.object({
-        Username: yup
-            .number('Enter your Mobile Number')
+        Title: yup
+            .string('Only letter are Allowed')
             .min(8, 'Password should be of minimum 8 characters length')
-            .required('Mobile is required'),
+            .required('Title is required'),
         Password: yup
-            .string('Enter your password')
+            .string('Only letter are Allowed')
             .min(8, 'Password should be of minimum 8 characters length')
             .required('Password is required'),
     });
 
     const formik = useFormik({
         initialValues: {
-            Username: '',
+            Title: '',
             Password: '',
         },
         validationSchema: validationSchema,
@@ -50,38 +50,26 @@ const AddTaskForm = () => {
                 <div className='main_Form'>
                     <TextField
                         fullWidth
+                        required
                         size='small'
                         id="Title"
                         name="Title"
                         label="Title"
                         variant="standard"
-                        value={formik.values.Username}
+                        value={formik.values.Title}
                         onChange={formik.handleChange}
-                        error={formik.touched.Username && Boolean(formik.errors.Username)}
-                        helperText={formik.touched.Username && formik.errors.Username}
+                        error={formik.touched.Title && Boolean(formik.errors.Title)}
+                        helperText={formik.touched.Title && formik.errors.Title}
                     />
                     <TextField
                         fullWidth
+                        required
                         size='small'
                         id="Description"
                         name="Description"
                         label="Description"
                         variant="standard"
                         className='input_type'
-                        value={formik.values.Password}
-                        onChange={formik.handleChange}
-                        error={formik.touched.Password && Boolean(formik.errors.Password)}
-                        helperText={formik.touched.Password && formik.errors.Password}
-                    />
-                    <TextField
-                        fullWidth
-                        size='small'
-                        id="Password"
-                        name="Password"
-                        label="Password"
-
-                        type="file"
-                        variant="standard"
                         value={formik.values.Password}
                         onChange={formik.handleChange}
                         error={formik.touched.Password && Boolean(formik.errors.Password)}
@@ -123,10 +111,24 @@ const AddTaskForm = () => {
                     </FormControl>
                     <TextField
                         fullWidth
+                        required
                         size='small'
-                        id="Description"
-                        name="Description"
-                        label="Description"
+                        id="AddUser"
+                        name="AddUser"
+                        label="Add User"
+                        variant="standard"
+                        className='input_type'
+                        value={formik.values.Password}
+                        onChange={formik.handleChange}
+                        error={formik.touched.Password && Boolean(formik.errors.Password)}
+                        helperText={formik.touched.Password && formik.errors.Password}
+                    />
+                    <TextField
+                        fullWidth
+                        size='small'
+                        id="AddMember"
+                        name="AddMember"
+                        label="Add CC Member"
                         variant="standard"
                         className='input_type'
                         value={formik.values.Password}

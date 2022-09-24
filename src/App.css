@@ -63,7 +63,3 @@ main{
 .title {
     text-transform: capitalize;
 }
-
-input[type="file"]{
-    display: none;
-}
