@@ -1,6 +1,5 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,9 +7,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import React from 'react';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Grid from '@mui/material/Grid';
 import '../../components/commonCssFile/commonfile.css'
-import DatePicker from '../../components/commonComponents/DatePicker'
+
 
 
 const AddTaskForm = () => {
@@ -22,7 +24,7 @@ const AddTaskForm = () => {
             .string('Only letter are Allowed')
             .min(8, 'Password should be of minimum 8 characters length')
             .required('Title is required'),
-        Password: yup
+        Description: yup
             .string('Only letter are Allowed')
             .min(8, 'Password should be of minimum 8 characters length')
             .required('Password is required'),
@@ -31,7 +33,9 @@ const AddTaskForm = () => {
     const formik = useFormik({
         initialValues: {
             Title: '',
-            Password: '',
+            Description: '',
+            CustomerName: '',
+
         },
         validationSchema: validationSchema,
 
@@ -70,19 +74,22 @@ const AddTaskForm = () => {
                         label="Description"
                         variant="standard"
                         className='input_type'
-                        value={formik.values.Password}
+                        value={formik.values.Description}
                         onChange={formik.handleChange}
-                        error={formik.touched.Password && Boolean(formik.errors.Password)}
-                        helperText={formik.touched.Password && formik.errors.Password}
+                        error={formik.touched.Description && Boolean(formik.errors.Description)}
+                        helperText={formik.touched.Description && formik.errors.Description}
                     />
                     <Box>
                         <FormControl variant="standard" sx={{ minWidth: 250 }} className='input_type'>
-                            <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
+                            <InputLabel id="demo-simple-select-filled-label">Customer Name</InputLabel>
                             <Select
                                 labelId="demo-simple-select-filled-label"
                                 id="demo-simple-select-filled"
                                 variant="standard"
                                 fullWidth
+                                value={formik.values.CustomerName}
+                                onChange={formik.handleChange}
+                                
                             // value={age}
                             // onChange={handleChange}
                             >
@@ -92,7 +99,19 @@ const AddTaskForm = () => {
                             </Select>
                         </FormControl>
                         <FormControl style={{ marginLeft: "8px" }} sx={{ minWidth: 250 }} className='input_type'>
-                            <DatePicker />
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DatePicker
+                                    label="Select Date"
+                                    value={formik.values.CustomerName}
+                                    onChange={formik.handleChange}
+                                    error={formik.touched.CustomerName && Boolean(formik.errors.CustomerName)}
+                                    helperText={formik.touched.CustomerName && formik.errors.CustomerName}
+                                    // onChange={(newValue) => {
+                                    //     setValue(newValue);
+                                    // }}
+                                    renderInput={(params) => <TextField variant="standard" {...params} />}
+                                />
+                            </LocalizationProvider>
                         </FormControl>
                     </Box>
                     <FormControl variant="standard" sx={{ minWidth: 250 }} className='input_type'>
@@ -118,10 +137,10 @@ const AddTaskForm = () => {
                         label="Add User"
                         variant="standard"
                         className='input_type'
-                        value={formik.values.Password}
+                        value={formik.values.AddUser}
                         onChange={formik.handleChange}
-                        error={formik.touched.Password && Boolean(formik.errors.Password)}
-                        helperText={formik.touched.Password && formik.errors.Password}
+                        error={formik.touched.AddUser && Boolean(formik.errors.AddUser)}
+                        helperText={formik.touched.AddUser && formik.errors.AddUser}
                     />
                     <TextField
                         fullWidth
@@ -133,8 +152,6 @@ const AddTaskForm = () => {
                         className='input_type'
                         value={formik.values.Password}
                         onChange={formik.handleChange}
-                        error={formik.touched.Password && Boolean(formik.errors.Password)}
-                        helperText={formik.touched.Password && formik.errors.Password}
                     />
                 </div>
             </form>
