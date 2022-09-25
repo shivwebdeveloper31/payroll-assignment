@@ -9,6 +9,7 @@ import BasicTabs from './MyTaskTabs';
 import AddTaskModal from './AddTaskModal';
 import { MyTaskAction } from '../../components/redux/action/MyTaskAction';
 import { useSelector, useDispatch } from 'react-redux';
+import FilterModal from './FilterModal';
 
 
 const MyTask = () => {
@@ -28,7 +29,7 @@ const MyTask = () => {
                 <Paper className='Paper'>
                     <Box className='Top_MyTask'>
                         <Grid>
-                            <Button variant="contained" size='small'>Filter</Button>
+                            <Box><FilterModal responseData={responseData} /></Box>
                         </Grid>
                         <Box className='Left_side'>
                             <TextField id="standard-basic" label="Search" variant="standard" onChange={(e) => Setquery(e.target.value)} />

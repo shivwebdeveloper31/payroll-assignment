@@ -5,10 +5,10 @@ import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-import AddTaskForm from './AddTaskForm';
+import FilterForm from './FilterForm';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -48,7 +48,9 @@ BootstrapDialogTitle.propTypes = {
     onClose: PropTypes.func.isRequired,
 };
 
-export default function AddTaskModal() {
+export default function FilterModal({ responseData }) {
+
+    responseData = { responseData }
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -61,26 +63,28 @@ export default function AddTaskModal() {
     return (
         <div>
             <Button variant="contained" size='small' onClick={handleClickOpen}>
-                Add Task
+                Filter
             </Button>
             <BootstrapDialog
-                // onClose={handleClose}
+                onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
-                onClose={(_, reason) => {
-                    if (reason !== "backdropClick") {
-                        handleClose();
-                    }
-                }}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Add Task
+
+
                 </BootstrapDialogTitle>
-                <DialogContent dividers>
-                    <Typography gutterBottom>
-                        <AddTaskForm handleClose={handleClose} />
-                    </Typography>
+                <DialogContent>
+                    <FilterForm responseData={responseData} />
                 </DialogContent>
+                <DialogActions dividers>
+                    <Button size='small' variant='contained' onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button size='small' variant='contained' onClick={handleClose}>
+                        Apply
+                    </Button>
+                </DialogActions>
             </BootstrapDialog>
         </div>
     );

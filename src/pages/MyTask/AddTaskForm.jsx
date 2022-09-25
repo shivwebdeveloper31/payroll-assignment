@@ -7,27 +7,29 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import React from 'react';
+import DialogActions from '@mui/material/DialogActions';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import Grid from '@mui/material/Grid';
-import '../../components/commonCssFile/commonfile.css'
+import '../../components/commonCssFile/commonfile.css';
+import { Button } from '@mui/material';
 
 
 
-const AddTaskForm = () => {
-
+const AddTaskForm = ({ handleClose }) => {
+    const [value, setValue] = React.useState(null);
 
 
     const validationSchema = yup.object({
         Title: yup
             .string('Only letter are Allowed')
-            .min(8, 'Password should be of minimum 8 characters length')
             .required('Title is required'),
         Description: yup
             .string('Only letter are Allowed')
-            .min(8, 'Password should be of minimum 8 characters length')
-            .required('Password is required'),
+            .required('Description is required'),
+        AddUser: yup
+            .string('only letter are Allowed')
+            .required('Add User is required'),
     });
 
     const formik = useFormik({
@@ -35,6 +37,7 @@ const AddTaskForm = () => {
             Title: '',
             Description: '',
             CustomerName: '',
+            AddUser: '',
 
         },
         validationSchema: validationSchema,
@@ -89,7 +92,7 @@ const AddTaskForm = () => {
                                 fullWidth
                                 value={formik.values.CustomerName}
                                 onChange={formik.handleChange}
-                                
+
                             // value={age}
                             // onChange={handleChange}
                             >
@@ -102,10 +105,11 @@ const AddTaskForm = () => {
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
                                     label="Select Date"
-                                    value={formik.values.CustomerName}
-                                    onChange={formik.handleChange}
-                                    error={formik.touched.CustomerName && Boolean(formik.errors.CustomerName)}
-                                    helperText={formik.touched.CustomerName && formik.errors.CustomerName}
+                                    value={value}
+                                    onChange={(newValue) => {
+                                        setValue(newValue);
+                                    }}
+                                    // value={value}
                                     // onChange={(newValue) => {
                                     //     setValue(newValue);
                                     // }}
@@ -150,10 +154,18 @@ const AddTaskForm = () => {
                         label="Add CC Member"
                         variant="standard"
                         className='input_type'
-                        value={formik.values.Password}
-                        onChange={formik.handleChange}
+                    // error={formik.touched.AddUser && Boolean(formik.errors.AddUser)}
+                    // helperText={formik.touched.AddUser && formik.errors.AddUser}
                     />
                 </div>
+                <DialogActions dividers className='input_type'>
+                    <Button variant='contained' size='small' color="success" onClick={handleClose}>
+                        Cancel
+                    </Button>
+                    <Button type='submit' variant='contained' size='small'>
+                        Add
+                    </Button>
+                </DialogActions>
             </form>
         </>
     )

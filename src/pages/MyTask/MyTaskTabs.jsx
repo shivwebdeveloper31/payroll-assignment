@@ -53,8 +53,6 @@ export default function BasicTabs({ responseData, query }) {
         setValue(newValue);
     };
 
-    console.log("gggggggggggggg", responseData);
-
     const StyleTableCell = withStyles({
         head: {
             fontWeight: 600,
