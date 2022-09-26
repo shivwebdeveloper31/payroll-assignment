@@ -15,6 +15,11 @@
 .Header_main{
     position: fixed;
     width: 100%;
+    z-index: 10;
+    background-color: white;
+}
+.children{
+    z-index: 0;
 }
 
 main{
