@@ -7,9 +7,10 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import BasicTabs from './MyTaskTabs';
 import AddTaskModal from './AddTaskModal';
-import { MyTaskAction } from '../../components/redux/action/MyTaskAction';
+import { MyTaskAction, UpdateMyTaskAction, CompleteMyTaskAction } from '../../components/redux/action/MyTaskAction';
 import { useSelector, useDispatch } from 'react-redux';
 import FilterModal from './FilterModal';
+
 
 
 const MyTask = () => {
@@ -22,6 +23,15 @@ const MyTask = () => {
         dispatch(MyTaskAction());
     }, []);
 
+    const UpdateMyTask = (taskId) => {
+        dispatch(UpdateMyTaskAction(taskId));
+
+    };
+
+    const CompleteMyTask = (taskId) => {
+        dispatch(CompleteMyTaskAction(taskId));
+
+    };
 
     return (
         <div>
@@ -41,7 +51,7 @@ const MyTask = () => {
                         </Box>
                     </Box><hr />
                     <Box>
-                        <BasicTabs responseData={responseData} query={query} />
+                        <BasicTabs responseData={responseData} query={query} UpdateMyTask={UpdateMyTask} CompleteMyTask={CompleteMyTask} />
                     </Box>
                 </Paper>
             </Box>

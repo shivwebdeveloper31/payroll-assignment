@@ -1,9 +1,9 @@
-import { MyTask } from '../ConstantType';
-import { GetApiMyTask } from '../apiServices/MyTaskAPIServices';
+import { MyTask, UpdateMyTask, CompleteMyTask } from '../ConstantType';
+import { GetApiMyTask, UpdateApiMyTask, CompleteApiMyTask } from '../apiServices/MyTaskAPIServices';
 import { toast } from 'react-toastify';
 
 
-// 1.Login
+
 export const MyTaskAction = () => {
 
     return function (dispatch) {
@@ -17,6 +17,32 @@ export const MyTaskAction = () => {
         });
     };
 };
+
+
+
+export const UpdateMyTaskAction = (request) => {
+    return function (dispatch) {
+        return UpdateApiMyTask(request).then((res) => {
+            console.log('Update data', res)
+            dispatch({
+                type: UpdateMyTask,
+                payload: res,
+            })
+        })
+    }
+}
+
+export const CompleteMyTaskAction = (request) => {
+    return function (dispatch) {
+        return CompleteApiMyTask(request).then((res) => {
+            console.log('complete data', res)
+            dispatch({
+                type: CompleteMyTask,
+                payload: res,
+            })
+        })
+    }
+}
 
 // export const MyTaskAction = (data, navigate) => {
 //     return dispatch => {

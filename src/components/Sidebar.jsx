@@ -3,7 +3,6 @@ import {
     FaTh,
     FaBars,
     FaUserAlt,
-
     FaThList,
     FaUserFriends
 } from "react-icons/fa";

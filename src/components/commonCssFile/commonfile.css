@@ -34,3 +34,9 @@
 .input_type{
     margin-top: 15px !important
 }
+.Upload_input{
+    display: none;
+}
+.Upload_input_label{
+    margin-top: 28px !important
+}
