@@ -1,181 +1,3 @@
-// import { useFormik } from 'formik';
-// import * as yup from 'yup';
-// import TextField from '@mui/material/TextField';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
-// import Box from '@mui/material/Box';
-// import React from 'react';
-// import DialogActions from '@mui/material/DialogActions';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import '../../components/commonCssFile/commonfile.css';
-// import { Button } from '@mui/material';
-
-
-
-// const AddTaskForm = ({ handleClose }) => {
-//     const [value, setValue] = React.useState(null);
-
-
-//     const validationSchema = yup.object({
-//         Title: yup
-//             .string('Only letter are Allowed')
-//             .required('Title is required'),
-//         Description: yup
-//             .string('Only letter are Allowed')
-//             .required('Description is required'),
-//         AddUser: yup
-//             .string('only letter are Allowed')
-//             .required('Add User is required'),
-//     });
-
-//     const formik = useFormik({
-//         initialValues: {
-//             Title: '',
-//             Description: '',
-//             CustomerName: '',
-//             AddUser: '',
-
-//         },
-//         validationSchema: validationSchema,
-
-//         onSubmit: (values) => {
-//             if (values) {
-//                 // dispatch(LoginAdmin(values, navigate));
-
-//             }
-//         },
-
-//     });
-
-//     return (
-//         <>
-//             <form onSubmit={formik.handleSubmit}>
-//                 <div className='main_Form'>
-//                     <TextField
-//                         fullWidth
-//                         size='small'
-//                         id="Title"
-//                         name="Title"
-//                         label="Title"
-//                         variant="standard"
-//                         value={formik.values.Title}
-//                         onChange={formik.handleChange}
-//                         error={formik.touched.Title && Boolean(formik.errors.Title)}
-//                         helperText={formik.touched.Title && formik.errors.Title}
-//                     />
-//                     <TextField
-//                         fullWidth
-//                         size='small'
-//                         id="Description"
-//                         name="Description"
-//                         label="Description"
-//                         variant="standard"
-//                         className='input_type'
-//                         value={formik.values.Description}
-//                         onChange={formik.handleChange}
-//                         error={formik.touched.Description && Boolean(formik.errors.Description)}
-//                         helperText={formik.touched.Description && formik.errors.Description}
-//                     />
-//                     <div className='Upload_input_label'>
-//                         <label for="myfile" >Attach File</label>
-//                         <input type="file" id="myfile" name="myfile" className='Upload_input'></input>
-//                     </div><FormControl variant="standard" sx={{ minWidth: 250 }} className='input_type'>
-//                             <InputLabel id="demo-simple-select-filled-label">Customer Name</InputLabel>
-//                             <Select
-//                                 labelId="demo-simple-select-filled-label"
-//                                 id="demo-simple-select-filled"
-//                                 variant="standard"
-//                                 fullWidth
-//                                 value={formik.values.CustomerName}
-//                                 onChange={formik.handleChange}
-
-//                             // value={age}
-//                             // onChange={handleChange}
-//                             >
-//                                 <MenuItem value={10}>Ten</MenuItem>
-//                                 <MenuItem value={20}>Twenty</MenuItem>
-//                                 <MenuItem value={30}>Thirty</MenuItem>
-//                             </Select>
-//                         </FormControl>
-//                     <hr />
-//                     <Box>
-//                         
-//                         <FormControl style={{ marginLeft: "8px" }} sx={{ minWidth: 250 }} className='input_type'>
-//                             <LocalizationProvider dateAdapter={AdapterDayjs}>
-//                                 <DatePicker
-//                                     label="Select Date"
-//                                     disablePast
-//                                     value={value}
-//                                     onChange={(newValue) => {
-//                                         setValue(newValue);
-//                                     }}
-//                                     // value={value}
-//                                     // onChange={(newValue) => {
-//                                     //     setValue(newValue);
-//                                     // }}
-//                                     renderInput={(params) => <TextField variant="standard" {...params} />}
-//                                 />
-//                             </LocalizationProvider>
-//                         </FormControl>
-//                     </Box>
-//                     <FormControl variant="standard" sx={{ minWidth: 250 }} className='input_type'>
-//                         <InputLabel id="demo-simple-select-filled-label">Select Priority</InputLabel>
-//                         <Select
-//                             labelId="demo-simple-select-filled-label"
-//                             id="demo-simple-select-filled"
-//                             variant="standard"
-//                             fullWidth
-//                         // value={age}
-//                         // onChange={handleChange}
-//                         >
-//                             <MenuItem value={10}>High Priority</MenuItem>
-//                             <MenuItem value={20}>Low Priority</MenuItem>
-//                         </Select>
-//                     </FormControl>
-//                     <TextField
-//                         fullWidth
-//                         size='small'
-//                         id="AddUser"
-//                         name="AddUser"
-//                         label="Add User"
-//                         variant="standard"
-//                         className='input_type'
-//                         value={formik.values.AddUser}
-//                         onChange={formik.handleChange}
-//                         error={formik.touched.AddUser && Boolean(formik.errors.AddUser)}
-//                         helperText={formik.touched.AddUser && formik.errors.AddUser}
-//                     />
-//                     <TextField
-//                         fullWidth
-//                         size='small'
-//                         id="AddMember"
-//                         name="AddMember"
-//                         label="Add CC Member"
-//                         variant="standard"
-//                         className='input_type'
-//                     // error={formik.touched.AddUser && Boolean(formik.errors.AddUser)}
-//                     // helperText={formik.touched.AddUser && formik.errors.AddUser}
-//                     />
-//                 </div>
-//                 <DialogActions dividers className='input_type'>
-//                     <Button variant='contained' size='small' color="success" onClick={handleClose}>
-//                         Cancel
-//                     </Button>
-//                     <Button type='submit' variant='contained' size='small'>
-//                         Add
-//                     </Button>
-//                 </DialogActions>
-//             </form>
-//         </>
-//     )
-// }
-// export default AddTaskForm;
-
-
 import React from "react";
 import {
     withStyles,
@@ -197,6 +19,11 @@ import Select from '@mui/material/Select';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useEffect } from "react";
+import { LeadMyTaskAction } from '../../components/redux/action/MyTaskAction';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from "react";
+const token = localStorage.getItem("token");
 
 const styles = () => ({
     card: {
@@ -212,22 +39,19 @@ const styles = () => ({
     }
 });
 
-const courseCategory = [
-    {
-        value: "webDevelopment",
-        label: "Web Development"
-    },
-    {
-        value: "networking",
-        label: "Networking"
-    },
-    {
-        value: "computerScience",
-        label: "Computer Science"
-    }
-];
+const AddTaskForm = (props, { handleClose }) => {
+    // console.log('handleclose', handleClose);
+    const [date, setDate] = React.useState(null);
+    const [udata, setUdata] = useState();
 
-const AddTaskForm = props => {
+    const dispatch = useDispatch();
+    const responseData = useSelector(state => state?.mytask?.user);
+
+
+    useEffect(() => {
+        dispatch(LeadMyTaskAction());
+    }, []);
+
     const {
         classes,
         values,
@@ -239,6 +63,29 @@ const AddTaskForm = props => {
         handleSubmit,
         handleReset
     } = props;
+
+    const headers = {
+        "Content-Type": "application/json",
+        'Authorization': `Basic ${token}`
+    }
+
+    const Userdata = () => {
+
+        fetch(`/CompanyMembers?from=1&text=&to=100`, {
+            method: 'GET', headers
+        }).then((response) => response.json())
+            .then((Udata) =>
+                setUdata(Udata));
+
+    };
+
+    useEffect(() => {
+        Userdata();
+    }, [])
+
+    const handleChangeDate = (date) => {
+        setDate(date)
+    }
 
     return (
         <div className={classes.container}>
@@ -269,38 +116,39 @@ const AddTaskForm = props => {
                         fullWidth
                     />
                     <div className='Upload_input_label'>
-                        <label for="myfile" >Attach File</label>
-                        <input type="file" id="myfile" name="myfile" className='Upload_input'></input>
+                        <label for="Image" >Attach File</label>
+                        <input type="file" value={values.Upload} onChange={handleChange} id="Image" name="Image" className='Upload_input' />
                     </div>
                     <hr />
                     <div>
                         <FormControl variant="standard" sx={{ minWidth: 250 }} className='input_type'>
-                            <InputLabel id="demo-simple-select-filled-label">Customer Name</InputLabel>
+                            <InputLabel id="customername">Customer Name</InputLabel>
                             <Select
                                 labelId="demo-simple-select-filled-label"
-                                id="demo-simple-select-filled"
+                                id="customer"
                                 variant="standard"
+                                name="customer"
                                 fullWidth
-                            // value={formik.values.CustomerName}
-                            // onChange={formik.handleChange}
-
-                            // value={age}
-                            // onChange={handleChange}
+                                value={values.customer}
+                                onChange={handleChange}
                             >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                {responseData?.data?.data?.Leads.map((item) => (
+                                    <MenuItem value={item.LeadName}>{item.LeadName}</MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
+
                         <FormControl style={{ marginLeft: "8px" }} sx={{ minWidth: 250 }} className='input_type'>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <DatePicker
                                     label="Select Date"
                                     disablePast
-                                    // value={value}
+                                    name="date"
+                                    value={date}
                                     // onChange={(newValue) => {
-                                    //     setValue(newValue);
+                                    //     setDate(newValue);
                                     // }}
+                                    onChange={handleChangeDate}
                                     renderInput={(params) => <TextField variant="standard" {...params} />}
                                 />
                             </LocalizationProvider>
@@ -310,14 +158,15 @@ const AddTaskForm = props => {
                         <InputLabel id="demo-simple-select-filled-label">Select Priority</InputLabel>
                         <Select
                             labelId="demo-simple-select-filled-label"
-                            id="demo-simple-select-filled"
+                            id="Priority"
+                            name="Priority"
                             variant="standard"
                             fullWidth
-                        //   value={age}
-                        //   onChange={handleChange}
+                            value={values.Priority}
+                            onChange={handleChange}
                         >
-                            <MenuItem value={10}>High Priority</MenuItem>
-                            <MenuItem value={20}>Low Priority</MenuItem>
+                            <MenuItem value='High'>High Priority</MenuItem>
+                            <MenuItem value='Low'>Low Priority</MenuItem>
                         </Select>
                     </FormControl>
                     <div>
@@ -325,14 +174,18 @@ const AddTaskForm = props => {
                             <InputLabel id="demo-simple-select-filled-label">Add User</InputLabel>
                             <Select
                                 labelId="demo-simple-select-filled-label"
-                                id="demo-simple-select-filled"
+                                id="User"
                                 variant="standard"
                                 fullWidth
-                            //   value={age}
-                            //   onChange={handleChange}
+                                name="User"
+                                value={values.User}
+                                onChange={handleChange}
                             >
-                                <MenuItem value={10}>High Priority</MenuItem>
-                                <MenuItem value={20}>Low Priority</MenuItem>
+                                {
+                                    udata?.data?.Members?.map((items) => (
+                                        <MenuItem value={items.Name}>{items.Name}</MenuItem>
+                                    ))
+                                }
                             </Select>
                         </FormControl>
                     </div>
@@ -344,20 +197,24 @@ const AddTaskForm = props => {
                                 id="demo-simple-select-filled"
                                 variant="standard"
                                 fullWidth
-                            //   value={age}
-                            //   onChange={handleChange}
+                                name="Member"
+                                value={values.Member}
+                                onChange={handleChange}
                             >
-                                <MenuItem value={10}>High Priority</MenuItem>
-                                <MenuItem value={20}>Low Priority</MenuItem>
+                                {
+                                    udata?.data?.Members?.map((items) => (
+                                        <MenuItem value={items.Name}>{items.Name}</MenuItem>
+                                    ))
+                                }
                             </Select>
                         </FormControl>
                     </div>
                 </CardContent>
                 <DialogActions>
-                    <Button variant='contained' size='small'>
+                    <Button onClose={handleClose} variant='contained' size='small'>
                         Cancel
                     </Button>
-                    <Button type='submit' variant='contained' size='small'>
+                    <Button type='submit' variant='contained' size='small' disabled={isSubmitting}>
                         Add
                     </Button>
                 </DialogActions>
@@ -369,29 +226,21 @@ const AddTaskForm = props => {
 const Form = withFormik({
     mapPropsToValues: ({
         Title,
-        name,
-        surname,
-        email,
-        course,
-        password,
-        confirmPassword
+        Description,
     }) => {
         return {
             Title: Title || "",
-            name: name || "",
-            surname: surname || "",
-            email: email || "",
-            course: course || "",
-            password: password || "",
-            confirmPassword: confirmPassword || ""
+            Description: Description || "",
+
         };
     },
+
 
     validationSchema: yup.object().shape(validationsForm),
 
     handleSubmit: (values, { setSubmitting }) => {
         setTimeout(() => {
-            //submit to the server
+            // submit to the server
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
         }, 1000);
@@ -400,3 +249,4 @@ const Form = withFormik({
 
 export default withStyles(styles)(Form);
 
+// https://codesandbox.io/s/formik-material-ui-and-yup-hy0ju?file=/src/validations/validationSchema.jss

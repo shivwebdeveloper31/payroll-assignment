@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -10,6 +10,8 @@ import { ColorRing } from 'react-loader-spinner'
 import Table from '@mui/material/Table';
 import { toast } from 'react-toastify';
 import moment from 'moment/moment';
+import Modal from '@mui/material/Modal';
+import { Divider } from '@mui/material';
 import {
     FaThumbsUp,
     FaTrashAlt,
@@ -26,6 +28,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { UpdateMyTaskAction } from '../../components/redux/action/MyTaskAction';
 import { useDispatch, useSelector } from 'react-redux';
+import PartialCompleteModal from './PartialCompleteModal';
 
 const token = localStorage.getItem("token");
 function TabPanel(props) {
@@ -67,6 +70,12 @@ export default function BasicTabs({ responseData, query, UpdateMyTask, CompleteM
     const [value, setValue] = React.useState(0);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(30);
+    const [partial, SetPartial] = useState();
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    console.log("jjjjjjjjjjjjjjjjjj", partial);
 
     // useEffect(() => {
     //     dispatch(UpdateMyTaskAction());
@@ -88,7 +97,29 @@ export default function BasicTabs({ responseData, query, UpdateMyTask, CompleteM
 
     };
 
-    // /Task/UserTaskStatusMaster
+    const PartialComplete = () => {
+
+        fetch(`/Task/UserTaskStatusMaster`, {
+            method: 'GET', headers
+        }).then((response) => response.json())
+            .then((Partialdata) => {
+                SetPartial(Partialdata)
+            });
+
+    };
+
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage)
@@ -166,8 +197,36 @@ export default function BasicTabs({ responseData, query, UpdateMyTask, CompleteM
                                     <StyleTableCell style={{ color: 'blue', fontSize: '20px' }}><center>{data.TaskStatus === 0 ? '' : <FaThumbsUp onClick={(e) => UpdateMyTask(data.TaskId)} /> && data.TaskStatus === 100 ? " " : <FaThumbsUp onClick={(e) => UpdateMyTask(data.TaskId)} />}</center></StyleTableCell>
                                     <StyleTableCell style={{ color: 'red', fontSize: '20px' }}><center><FaTrashAlt onClick={(e) => DeleteMyTask(data.TaskId)}>{data.TaskId}</FaTrashAlt></center></StyleTableCell>
                                     <StyleTableCell style={{ color: 'purple', fontSize: '20px' }}><center>{data.TaskStatus === 0 ? <FaRegCheckCircle onClick={(e) => CompleteMyTask(data.TaskId)} /> : ''}</center></StyleTableCell>
-                                    <StyleTableCell style={{ color: 'green', fontSize: '20px' }}><center><FaJoget /></center></StyleTableCell>
+                                    <StyleTableCell style={{ color: 'green', fontSize: '20px' }} ><center>
+                                        <FaJoget onClick={handleOpen} />
+                                    </center></StyleTableCell>
                                 </TableRow>
+                                <div>
+                                    <Modal
+                                        open={open}
+                                        onClose={handleClose}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                    >
+                                        <Box sx={style}>
+                                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                                                Partial Complete
+                                            </Typography>
+                                            <Divider />
+                                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
+                                                {partial?.data.map((item) => {
+                                                    <div>
+                                                        <h1>hahahshshhs{item.Id}</h1>
+                                                        <h1>{item.Id}</h1>
+                                                        <h1>{item.Value}</h1>
+                                                    </div>
+
+                                                })}
+                                            </Typography>
+                                        </Box>
+                                    </Modal>
+                                </div>
                             </>
                             )) : <div>
                             <ColorRing

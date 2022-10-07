@@ -1,4 +1,4 @@
-import { MyTask, UpdateMyTask, CompleteMyTask } from "../ConstantType";
+import { MyTask, UpdateMyTask, CompleteMyTask, LeadMyTask } from "../ConstantType";
 
 const initialState = {
     user: {},
@@ -19,6 +19,11 @@ export const MyTaskReducer = (state = initialState, action) => {
             }
         }
         case CompleteMyTask: {
+            return {
+                user: action.payload,
+            }
+        }
+        case LeadMyTask: {
             return {
                 user: action.payload,
             }

@@ -45,5 +45,13 @@ export const CompleteApiMyTask = (taskId) => {
     return MyTaskRequest(`/Task/UpdateTaskStatus`, 'POST', headers, { "TaskId": taskId, "TaskStatusValue": 100 });
 }
 
+export const LeadApiMyTask = () => {
+    const headers = {
+        "Content-Type": "application/json",
+        'Authorization': `Basic ${token}`
+    }
+    return MyTaskRequest(`/CRM/Leads`, 'POST', headers, { "From": 1, "To": -1, "Text": "" });
+}
+
 
 export default MyTaskRequest;

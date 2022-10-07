@@ -78,7 +78,7 @@ export default function AddTaskModal() {
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Typography gutterBottom>
-                        <AddTaskForm handleClose={handleClose} />
+                        <AddTaskForm onClose={handleClose} />
                     </Typography>
                 </DialogContent>
             </BootstrapDialog>

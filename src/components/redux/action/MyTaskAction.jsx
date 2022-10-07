@@ -1,5 +1,5 @@
-import { MyTask, UpdateMyTask, CompleteMyTask } from '../ConstantType';
-import { GetApiMyTask, UpdateApiMyTask, CompleteApiMyTask } from '../apiServices/MyTaskAPIServices';
+import { MyTask, UpdateMyTask, CompleteMyTask, LeadMyTask } from '../ConstantType';
+import { GetApiMyTask, UpdateApiMyTask, CompleteApiMyTask, LeadApiMyTask } from '../apiServices/MyTaskAPIServices';
 import { toast } from 'react-toastify';
 
 
@@ -38,6 +38,18 @@ export const CompleteMyTaskAction = (request) => {
             console.log('complete data', res)
             dispatch({
                 type: CompleteMyTask,
+                payload: res,
+            })
+        })
+    }
+}
+
+export const LeadMyTaskAction = (request) => {
+    return function (dispatch) {
+        return LeadApiMyTask(request).then((res) => {
+            console.log('complete data', res)
+            dispatch({
+                type: LeadMyTask,
                 payload: res,
             })
         })
